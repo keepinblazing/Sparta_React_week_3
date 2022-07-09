@@ -9,6 +9,7 @@ const BucketList = (props) => {
   const my_lists = useSelector((state) => state.bucket.list);
   
   return (
+    
     <ListStyle>
       {my_lists.map((list, index) => {
         return (
@@ -20,21 +21,31 @@ const BucketList = (props) => {
         );
       })}
     </ListStyle>
+    
   );
 };
+
+
+
+
 
 const ListStyle = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: 50vh;
   overflow-x: hidden;
   overflow-y: auto;
+  max-height: 50vh;
 `;
 
 const ItemStyle = styled.div`
   padding: 16px;
   margin: 8px;
-  background-color: ${(props) => props.completed? "orange" : "aliceblue"};
+  background-color: ${(props) => props.completed? "black" : "white"};
+  color : ${(props) => props.completed? "white" : "black"};
+  border : 2px solid black;
 `;
+
+
 
 export default BucketList;
